@@ -7,6 +7,8 @@ const router = Router()
 
 // create book
 router.post("/", validateRequest(bookValidateSchema), bookControllers.createBook)
+router.get("/", bookControllers.getBooks)
+router.get("/:id", bookControllers.getSingleProductById)
 
 
 export const BookRoutes = router;

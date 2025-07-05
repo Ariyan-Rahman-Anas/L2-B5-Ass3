@@ -32,8 +32,15 @@ const getBooksFromDB = async (query: any) => {
     }
 }
 
+const getSingleBookByIdFromDB = async (id: string) => {
+    const result = await BookModel.findById(id)
+    return result
+}
+
+
 export const bookServices = {
     createBookInDB,
-    getBooksFromDB
+    getBooksFromDB,
+    getSingleBookByIdFromDB
 
 }
