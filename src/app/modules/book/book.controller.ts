@@ -25,9 +25,8 @@ const getBooks = catchAsync(async (req, res) => {
 })
 
 
-
-const getSingleProductById = catchAsync(async (req, res) => {
-    const result = await bookServices.getSingleBookByIdFromDB(req.params.id)
+const getSingleBookById = catchAsync(async (req, res) => {
+    const result = await bookServices.getSingleBookByIdFromDB(req.params.bookId)
 
     sendResponse(res, {
         success: true,
@@ -37,8 +36,32 @@ const getSingleProductById = catchAsync(async (req, res) => {
 })
 
 
+const updateBook = catchAsync(async (req, res) => {
+    const result = await bookServices.updateBookInDB(req.params.bookId, req.body)
+
+    sendResponse(res, {
+        success: true,
+        message: "Book updated successfully",
+        data:result
+    })
+})
+
+
+const deleteBook = catchAsync(async (req, res) => {
+    await bookServices.deleteBookFromDB(req.params.bookId)
+
+    sendResponse(res, {
+        success: true,
+        message: "Book deleted successfully",
+        data: null
+    })
+})
+
+
 export const bookControllers = {
     createBook,
     getBooks,
-    getSingleProductById
+    getSingleBookById,
+    updateBook,
+    deleteBook
 }

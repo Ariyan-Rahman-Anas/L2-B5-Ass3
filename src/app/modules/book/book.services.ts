@@ -32,8 +32,18 @@ const getBooksFromDB = async (query: any) => {
     }
 }
 
-const getSingleBookByIdFromDB = async (id: string) => {
-    const result = await BookModel.findById(id)
+const getSingleBookByIdFromDB = async (bookId: string) => {
+    const result = await BookModel.findById(bookId)
+    return result
+}
+
+const updateBookInDB = async (bookId: string, bookData:Partial<TBook>) => {
+    const result = await BookModel.findByIdAndUpdate(bookId, bookData)
+    return result
+}
+
+const deleteBookFromDB = async (bookId: string) => {
+    const result = await BookModel.findByIdAndDelete(bookId)
     return result
 }
 
@@ -41,6 +51,7 @@ const getSingleBookByIdFromDB = async (id: string) => {
 export const bookServices = {
     createBookInDB,
     getBooksFromDB,
-    getSingleBookByIdFromDB
-
+    getSingleBookByIdFromDB,
+    updateBookInDB,
+    deleteBookFromDB
 }
