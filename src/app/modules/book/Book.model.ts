@@ -37,7 +37,7 @@ const bookSchema = new Schema({
 },
     { timestamps: true, versionKey: false })
 
-// instance method
+// instance method to handle availability
 bookSchema.methods.updateAvailability = async function () {
     if (this.copies <= 0) {
         this.available = false
