@@ -8,7 +8,7 @@ const duplicateError= (err:any):TGenericErrorResponse=> {
     const errorSource: TErrorSource = [
         {
             path: "",
-            message:`${extractedMessage} is already exit`
+            message:`${extractedMessage} is already exists`
         }
     ]
 

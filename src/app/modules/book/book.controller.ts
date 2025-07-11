@@ -3,8 +3,7 @@ import sendResponse from "../../utils/sendResponse"
 import { bookServices } from "./book.services"
 
 const createBook = catchAsync(async (req, res) => {
-    const bookData = req.body
-    const result = await bookServices.createBookInDB(bookData)
+    const result = await bookServices.createBookInDB(req.body)
 
     sendResponse(res, {
         success: true,

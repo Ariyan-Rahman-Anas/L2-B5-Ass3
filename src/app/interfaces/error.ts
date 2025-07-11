@@ -21,7 +21,7 @@ export interface FieldError{
     properties: ErrorProperties
     kind: string
     path: string
-    value:string
+    value:any
 }
 
 export interface ErrorResponse{
@@ -29,6 +29,6 @@ export interface ErrorResponse{
     success: boolean
     error: {
         name: string,
-        errors:Record<string, FieldError>
+        errors: Record <string, FieldError>
     }
 }
