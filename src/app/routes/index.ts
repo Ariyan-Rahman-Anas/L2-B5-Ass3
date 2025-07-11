@@ -9,7 +9,7 @@ const modulesRoutes = [
         route:BookRoutes
     },
     {
-        path: "/borrows",
+        path: "/borrow",
         route: BorrowRoutes
     }
 ]
