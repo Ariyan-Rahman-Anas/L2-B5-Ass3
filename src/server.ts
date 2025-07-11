@@ -17,5 +17,4 @@ async function main() {
         console.error("Failed to start server:", error)
     }
 }
-
 main()

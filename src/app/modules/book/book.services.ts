@@ -47,7 +47,6 @@ const deleteBookFromDB = async (bookId: string) => {
     return result
 }
 
-
 export const bookServices = {
     createBookInDB,
     getBooksFromDB,
