@@ -10,7 +10,10 @@ dotenv.config()
 const app: Application = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: ["http://localhost:5173", "http://localhost:5174"],
+    credentials: true,
+}))
 
 // Test route
 app.get("/", (req, res) => {
