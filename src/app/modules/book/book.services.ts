@@ -28,6 +28,8 @@ const getBooksFromDB = async (query: any) => {
         const book = await BookModel.find()
             .sort({ [query.sortBy]: query.sort === "asc" ? 1 : -1 })
             .limit(parseInt(query.limit) || 10)
+            .skip(parseInt(query.skip) || 0)
+            
         return book
     }
 }
